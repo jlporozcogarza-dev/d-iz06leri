@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="es-MX" data-type="place">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="page-type" content="place">
+<meta name="page-kind" content="place">
+<title>Tacos El Sabor de la Noche · Hidalgo, Centro de Monterrey</title>
+<meta name="description" content="Taquería en el Centro de Monterrey, abierta las 24 horas. Tacos de trompo y bistec, tortas y salsa de aguacate con chile piquín.">
+<meta name="theme-color" content="#E85A0C">
+<link rel="icon" href="img/cuadros.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Archivo+Narrow:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Colores sacados del local: lona naranja, letras rojas con contorno amarillo, mantel a cuadros rojo y blanco */
+:root{
+  --lona:#E85A0C;
+  --rojo:#C8161D;
+  --rojo-osc:#8E0F14;
+  --amarillo:#FFC21A;
+  --crema:#FBF5EC;
+  --alt:#F3E9DA;
+  --tinta:#231610;
+  --gris:#6A574A;
+  --linea:#E2D3BF;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Archivo Narrow",system-ui,sans-serif;background:var(--crema);color:var(--tinta);font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+@media(min-width:900px){.wrap{padding:0 40px}}
+.slab{font-family:"Alfa Slab One",Georgia,serif;font-weight:400;line-height:1.02;letter-spacing:-.005em}
+/* letras como en la lona */
+.lona-txt{color:var(--rojo);-webkit-text-stroke:3px var(--amarillo);paint-order:stroke fill}
+.cuadros{height:24px;background:url(img/cuadros.svg) 0 0/24px 24px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:16px;z-index:99;background:#fff;padding:10px 14px}
+:focus-visible{outline:3px solid var(--amarillo);outline-offset:3px}
+
+/* botones: un solo estilo, bloque */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:inherit;font-weight:700;font-size:18px;letter-spacing:.02em;text-decoration:none;border-radius:6px;padding:14px 22px;min-height:52px;border:0;cursor:pointer;background:var(--rojo);color:#fff;box-shadow:0 4px 0 var(--rojo-osc);transition:transform .12s,box-shadow .12s,background .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 0 var(--rojo-osc)}
+.btn:active{transform:translateY(3px);box-shadow:0 1px 0 var(--rojo-osc)}
+.btn svg{width:20px;height:20px;flex:none}
+.link{font-weight:700;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 2px no-repeat;transition:background-size .25s;padding:12px 0;display:inline-block}
+.link:hover{background-size:100% 2px}
+
+/* barra superior */
+header.bar{position:sticky;top:0;z-index:20;background:var(--lona);border-bottom:4px solid var(--amarillo)}
+header.bar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
+.marca{font-size:21px;text-decoration:none;white-space:nowrap;-webkit-text-stroke:2px var(--amarillo)}
+nav.menu{display:none;gap:28px;color:#fff;font-weight:700}
+nav.menu a{text-decoration:none;background:linear-gradient(#fff,#fff) 0 100%/0 2px no-repeat;transition:background-size .25s;padding:6px 0}
+nav.menu a:hover{background-size:100% 2px}
+header .btn{min-height:44px;padding:8px 16px;font-size:16px;background:var(--tinta);box-shadow:0 3px 0 #000}
+@media(min-width:900px){nav.menu{display:flex}}
+
+/* portada: texto y video lado a lado; en celular, texto arriba y video abajo */
+.hero{background:var(--crema);border-bottom:1px solid var(--linea)}
+.hero .wrap{display:grid;gap:22px;padding-top:26px;padding-bottom:0}
+.kicker{display:inline-flex;gap:10px;align-items:center;font-weight:700;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--rojo)}
+.kicker b{background:var(--amarillo);color:var(--tinta);padding:4px 9px;border-radius:4px;letter-spacing:.08em}
+.hero h1{font-size:clamp(46px,13vw,104px);margin:12px 0 0}
+.hero h1 small{display:block;font-family:"Archivo Narrow";font-weight:700;font-size:clamp(18px,4.4vw,24px);letter-spacing:.02em;color:var(--tinta);-webkit-text-stroke:0;margin-top:14px;line-height:1.25}
+.hero p.sub{font-size:19px;color:var(--gris);margin:12px 0 20px;max-width:34ch}
+.hero .acciones{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px}
+.hero-video{position:relative;height:clamp(300px,46vh,460px);margin:0 -20px;overflow:hidden;background:#000}
+.hero-video video{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+@media(min-width:900px){
+  .hero .wrap{grid-template-columns:7fr 5fr;align-items:center;gap:56px;padding-top:48px;padding-bottom:48px;min-height:calc(100vh - 68px)}
+  .hero-video{margin:0;height:auto;aspect-ratio:9/16;max-height:calc(100vh - 160px);justify-self:end;width:auto;border:6px solid var(--amarillo);outline:6px solid var(--lona)}
+  .hero p.sub{font-size:21px}
+}
+
+/* 24 horas: la banda de marca */
+.horas{background:var(--lona);color:#fff}
+.horas .wrap{padding-top:56px;padding-bottom:56px;display:grid;gap:18px}
+.reloj{font-size:clamp(120px,34vw,260px);line-height:.82}
+.horas h2{font-size:clamp(30px,6vw,46px);color:#fff}
+.horas p{font-size:20px;max-width:42ch}
+.dias{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:10px;max-width:520px}
+.dias span{background:var(--rojo);border:2px solid var(--amarillo);border-radius:4px;padding:6px 0;text-align:center;font-weight:700;font-size:15px}
+@media(min-width:900px){.horas .wrap{grid-template-columns:auto 1fr;align-items:center;gap:64px;padding-top:88px;padding-bottom:88px}}
+
+/* secciones */
+section.sec{padding:64px 0}
+@media(min-width:900px){section.sec{padding:96px 0}}
+.eyebrow{display:block;color:var(--rojo);font-weight:700;letter-spacing:.18em;text-transform:uppercase;font-size:14px}
+.sec h2{font-size:clamp(34px,6vw,54px);color:var(--tinta);margin:10px 0 14px}
+.intro{color:var(--gris);font-size:19px;max-width:52ch}
+
+/* foto con zoom suave al pasar el mouse, esquinas cuadradas */
+.foto{overflow:hidden;background:var(--alt)}
+.foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+a.foto:hover img,.foto:hover img{transform:scale(1.03)}
+
+/* carta: foto alta + grupos, luego tira de cuatro */
+.carta{background:var(--alt)}
+.carta-grid{display:grid;gap:28px}
+.carta-grid .alta{aspect-ratio:4/5}
+.grupos{display:grid;gap:26px;margin-top:6px}
+.grupo h3{font-family:"Archivo Narrow";font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--rojo);border-bottom:2px solid var(--tinta);padding-bottom:6px;margin-bottom:4px}
+.grupo li{list-style:none;display:flex;justify-content:space-between;gap:12px;font-size:18px;padding:9px 0;border-bottom:1px solid var(--linea)}
+.grupo li span{color:var(--gris);font-size:16px;text-align:right}
+.incluye{margin-top:22px;display:inline-block;background:var(--amarillo);font-weight:700;padding:10px 14px;border-radius:4px}
+.tira{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.tira .foto{aspect-ratio:1/1}
+@media(min-width:900px){
+  .carta-grid{grid-template-columns:5fr 7fr;gap:56px;align-items:start}
+  .grupos{grid-template-columns:1fr 1fr;gap:28px 36px}
+  .grupos .grupo:first-child{grid-row:span 2}
+  .tira{grid-template-columns:repeat(4,1fr);gap:24px;margin-top:56px}
+}
+
+/* calificación */
+.calif .wrap{display:grid;gap:26px;align-items:center}
+.cifra{display:flex;align-items:flex-end;gap:18px;flex-wrap:wrap}
+.num{font-size:clamp(110px,30vw,200px);color:var(--rojo);line-height:.85;font-variant-numeric:tabular-nums}
+.de5{font-size:22px;color:var(--gris);font-weight:700;padding-bottom:12px}
+.estrellas{display:flex;gap:8px;margin:18px 0 12px}
+.estrella{position:relative;width:46px;height:46px}
+.estrella svg{position:absolute;inset:0;width:46px;height:46px}
+.estrella .lleno{position:absolute;inset:0;width:0;overflow:hidden}
+.resenas{font-size:24px}
+.resenas b{font-variant-numeric:tabular-nums;color:var(--rojo)}
+.temas-t{font-weight:700;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);margin-bottom:12px}
+.temas{display:flex;flex-wrap:wrap;gap:8px}
+.temas span{border:2px solid var(--tinta);border-radius:4px;padding:6px 12px;font-size:17px;font-weight:600}
+@media(min-width:900px){.calif .wrap{grid-template-columns:7fr 5fr;gap:64px}}
+
+/* ubicación: la dirección en grande + trío del lugar */
+.ubi{border-top:1px solid var(--linea)}
+.direccion{display:inline-block;font-size:clamp(40px,8vw,96px);line-height:1.02;letter-spacing:-.01em;color:var(--tinta);text-decoration:none;margin:4px 0 18px;background:linear-gradient(var(--rojo),var(--rojo)) 0 96%/0 6px no-repeat;transition:background-size .35s}
+.direccion:hover{background-size:100% 6px}
+.ubi-datos{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center;font-size:19px;color:var(--gris)}
+.ubi-datos .acciones{display:flex;flex-wrap:wrap;gap:8px 22px;align-items:center;width:100%;margin-top:6px}
+.trio{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:40px}
+.trio .t1{grid-column:1/-1;aspect-ratio:4/3}
+.trio .t2{aspect-ratio:1/1}.trio .t3{aspect-ratio:1/1}
+@media(min-width:900px){
+  .trio{grid-template-columns:5fr 4fr 3fr;gap:24px;align-items:start;margin-top:56px}
+  .trio .t1{grid-column:auto;aspect-ratio:4/5}
+  .trio .t3{aspect-ratio:4/3}
+}
+
+/* facebook de muestra */
+.fb{background:#F0F2F5}
+.fb-tag{display:inline-block;background:#1877F2;color:#fff;font-weight:700;font-size:13px;letter-spacing:.1em;padding:5px 10px;border-radius:4px;text-transform:uppercase}
+.posts{display:grid;gap:20px;margin-top:32px}
+@media(min-width:760px){.posts{grid-template-columns:1fr 1fr}}
+@media(min-width:1100px){.posts{grid-template-columns:repeat(4,1fr)}}
+.post{background:#fff;border-radius:8px;box-shadow:0 1px 2px rgba(0,0,0,.2);font-family:Helvetica,Arial,system-ui,sans-serif;color:#050505;font-size:15px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.post:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.12)}
+.post-h{display:flex;gap:10px;align-items:center;padding:12px 14px}
+.avatar{width:40px;height:40px;border-radius:50%;background:var(--lona);border:2px solid var(--amarillo);display:grid;place-items:center;flex:none}
+.avatar span{font-family:"Alfa Slab One";color:var(--rojo);font-size:14px;-webkit-text-stroke:2px var(--amarillo);paint-order:stroke fill}
+.post-h b{display:block;font-size:15px;line-height:1.2}
+.post-h small{color:#65676B;font-size:13px}
+.post-t{padding:0 14px 12px;line-height:1.4}
+.post .foto{aspect-ratio:1/1}
+.post-r{display:flex;align-items:center;gap:8px;padding:10px 14px;color:#65676B;font-size:14px;border-bottom:1px solid #E4E6EB}
+.rx{display:inline-flex}
+.rx i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;border:2px solid #fff;margin-left:-5px}
+.rx i:first-child{margin-left:0}
+.rx svg{width:11px;height:11px;fill:#fff}
+.post-a{display:grid;grid-template-columns:repeat(3,1fr);padding:2px 6px}
+.post-a span{text-align:center;color:#65676B;font-weight:600;font-size:14px;padding:9px 0}
+
+footer{background:var(--tinta);color:#E8D9C8;padding:48px 0 120px}
+footer .slab{font-size:clamp(34px,7vw,64px)}
+footer p{margin-top:10px;font-size:17px}
+footer a{text-decoration:none;border-bottom:1px solid currentColor}
+.aviso{margin-top:28px;font-size:14px;color:#A8957F}
+@media(min-width:900px){footer{padding-bottom:48px}}
+
+/* barra fija para el celular */
+.barra-cel{position:fixed;left:12px;right:12px;bottom:12px;z-index:30;display:grid;grid-template-columns:1.3fr 1fr;gap:10px}
+.barra-cel .btn{box-shadow:0 4px 0 var(--rojo-osc),0 10px 24px rgba(0,0,0,.25)}
+.barra-cel .btn.sec{background:var(--tinta);box-shadow:0 4px 0 #000,0 10px 24px rgba(0,0,0,.25)}
+@media(min-width:900px){.barra-cel{display:none}}
+
+/* entrada de la portada, una vez */
+@keyframes sube{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.hero [data-enter]{animation:sube .7s cubic-bezier(.2,.7,.2,1) both}
+.hero [data-enter="2"]{animation-delay:.12s}.hero [data-enter="3"]{animation-delay:.24s}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#carta">Saltar a la carta</a>
+
+<header class="bar">
+  <div class="wrap">
+    <a href="#inicio" class="marca slab lona-txt">El Sabor de la Noche</a>
+    <nav class="menu" aria-label="Secciones"><a href="#carta">Carta</a><a href="#calificacion">Reseñas</a><a href="#ubicacion">Ubicación</a></nav>
+    <a class="btn" href="tel:+528120453418">Llamar</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <span class="kicker" data-enter="1"><b>24 horas</b> Taquería en el Centro</span>
+      <h1 class="slab lona-txt" data-enter="2">El Sabor de la Noche<small>Tacos de trompo y bistec con su salsita de aguacate, a la hora que sea.</small></h1>
+      <p class="sub" data-enter="3">Sucursal Hidalgo, en el Centro. Abierto las 24 horas, los 7 días.</p>
+      <div class="acciones" data-enter="3">
+        <a class="btn" href="tel:+528120453418"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Llamar al 81 2045 3418</a>
+        <a class="link" href="#carta">Ver la carta</a>
+      </div>
+    </div>
+    <div class="hero-video">
+      <video src="anuncio.mp4" poster="img/trompo.jpg" autoplay muted loop playsinline preload="metadata" aria-label="Video del trompo, los tacos y las tortas de la taquería"></video>
+    </div>
+  </div>
+</section>
+
+<div class="cuadros" aria-hidden="true"></div>
+
+<section class="horas" id="horario">
+  <div class="wrap">
+    <div class="reloj slab lona-txt" aria-hidden="true">24</div>
+    <div>
+      <h2 class="slab">Abierto las 24 horas, los&nbsp;7&nbsp;días</h2>
+      <p>Al salir del turno, después de la fiesta o a las cuatro de la mañana: el trompo sigue girando. Coma aquí o pida desde su carro.</p>
+      <div class="dias" aria-label="Lunes a domingo"><span>L</span><span>M</span><span>M</span><span>J</span><span>V</span><span>S</span><span>D</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec carta" id="carta">
+  <div class="wrap">
+    <div class="carta-grid">
+      <a class="foto alta" href="#ubicacion"><img src="img/tacos-bistec.jpg" alt="Tacos de bistec con guacamole, cebolla y cilantro en charola, con papitas" loading="lazy"></a>
+      <div>
+        <span class="eyebrow">La carta</span>
+        <h2 class="slab">Tacos, tortas y salsa de aguacate</h2>
+        <p class="intro">Tortilla de maíz doradita en la plancha, carne del trompo y la salsa de aguacate con chile piquín.</p>
+        <div class="grupos">
+          <div class="grupo"><h3>Tacos</h3><ul>
+            <li>Trompo y bistec</li>
+            <li>Bistec o trompo</li>
+            <li>Al pastor</li>
+            <li>Al vapor</li>
+            <li>Campechana de trompo <span>de harina</span></li>
+            <li>Campechana de suadero <span>de harina</span></li>
+          </ul></div>
+          <div class="grupo"><h3>Tortas y quesadillas</h3><ul>
+            <li>Torta de trompo</li>
+            <li>Torta de bistec</li>
+            <li>Torta especial</li>
+            <li>Quesadilla de suadero</li>
+          </ul></div>
+          <div class="grupo"><h3>Para acompañar</h3><ul>
+            <li>Salsa de aguacate <span>con chile piquín</span></li>
+            <li>Salsa verde</li>
+            <li>Cebolla asada</li>
+          </ul></div>
+        </div>
+        <p class="incluye">Cebollitas y papas galeana incluidas</p>
+      </div>
+    </div>
+    <div class="tira">
+      <a class="foto" href="#ubicacion"><img src="img/trompo.jpg" alt="Trompo de carne adobada al cortarse" loading="lazy"></a>
+      <a class="foto" href="#ubicacion"><img src="img/torta-trompo.jpg" alt="Torta de trompo con queso derretido" loading="lazy"></a>
+      <a class="foto" href="#ubicacion"><img src="img/tacos-vapor.jpg" alt="Tacos al vapor en charola" loading="lazy"></a>
+      <a class="foto" href="#ubicacion"><img src="img/salsa-aguacate.jpg" alt="Salsa de aguacate sobre tacos dorados" loading="lazy"></a>
+    </div>
+  </div>
+</section>
+
+<section class="sec calif" id="calificacion">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Calificación en Google Maps</span>
+      <div class="cifra"><div class="num slab" id="num">4.3</div><div class="de5">de 5</div></div>
+      <div class="estrellas" id="estrellas" role="img" aria-label="4.3 de 5 estrellas"></div>
+      <p class="resenas"><b id="resenas">3,923</b> reseñas de clientes</p>
+    </div>
+    <div>
+      <p class="temas-t">Lo que más mencionan</p>
+      <div class="temas"><span>Trompo</span><span>Guacamole</span><span>Suadero</span><span>Salsa verde</span><span>Longaniza</span><span>Taqueros</span><span>Tacos al pastor</span><span>Chile piquín</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec ubi" id="ubicacion">
+  <div class="wrap">
+    <span class="eyebrow">Ubicación</span>
+    <h2 class="slab">Aquí lo esperamos</h2>
+    <a class="direccion slab" href="https://www.google.com/maps/search/?api=1&amp;query=Tacos%20El%20Sabor%20de%20la%20Noche%20Hidalgo%20Monterrey" target="_blank" rel="noopener">Miguel Hidalgo y Costilla, Centro</a>
+    <div class="ubi-datos">
+      <span>64000 Monterrey, N.L.</span><span>Abierto 24 horas</span><span>Para comer aquí o desde su carro</span>
+      <div class="acciones">
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Tacos%20El%20Sabor%20de%20la%20Noche%20Hidalgo%20Monterrey" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5z"/></svg>Abrir en Google Maps</a>
+        <a class="link" href="tel:+528120453418">o llame al 81 2045 3418</a>
+      </div>
+    </div>
+    <div class="trio">
+      <div class="foto t1"><img src="img/local.jpg" alt="Salón con sillas rojas y manteles a cuadros rojo y blanco" loading="lazy"></div>
+      <div class="foto t2"><img src="img/taco-papas.jpg" alt="Taco con papitas, limón y salsa de aguacate" loading="lazy"></div>
+      <div class="foto t3"><img src="img/plancha.jpg" alt="Tortillas y carne en la plancha" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec fb" id="facebook">
+  <div class="wrap">
+    <span class="fb-tag">Muestra</span>
+    <h2 class="slab">Así se vería su Facebook</h2>
+    <p class="intro">Cuatro publicaciones de ejemplo, con el tipo de foto y texto que le prepararíamos cada semana.</p>
+    <div class="posts">
+      <article class="post">
+        <div class="post-h"><div class="avatar"><span>SN</span></div><div><b>Tacos El Sabor de la Noche</b><small>Publicación de muestra</small></div></div>
+        <p class="post-t">¿Ya le dio hambre y son las 2 de la mañana? 🌙 Aquí seguimos con el trompo prendido. Lo esperamos en Hidalgo, en el Centro. 🌮</p>
+        <div class="foto"><img src="img/trompo.jpg" alt="Trompo" loading="lazy"></div>
+        <div class="post-r"><span class="rx"><i style="background:#1877F2"><svg viewBox="0 0 24 24"><path d="M2 21h4V9H2zm20-11a2 2 0 0 0-2-2h-6.3l1-4.6v-.3a1.5 1.5 0 0 0-.4-1L13.2 1 6.6 7.6A2 2 0 0 0 6 9v10a2 2 0 0 0 2 2h9a2 2 0 0 0 1.8-1.2l3-7.1.2-.7z"/></svg></i><i style="background:#F33E58"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5A5.4 5.4 0 0 1 7.5 3 6 6 0 0 1 12 5.1 6 6 0 0 1 16.5 3 5.4 5.4 0 0 1 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></i></span>Me gusta · Me encanta</div>
+        <div class="post-a"><span>Me gusta</span><span>Comentar</span><span>Compartir</span></div>
+      </article>
+      <article class="post">
+        <div class="post-h"><div class="avatar"><span>SN</span></div><div><b>Tacos El Sabor de la Noche</b><small>Publicación de muestra</small></div></div>
+        <p class="post-t">Torta de trompo con el queso que se estira hasta acá 🧀 ¿A quién se la va a disparar hoy? Etiquételo.</p>
+        <div class="foto"><img src="img/torta-trompo.jpg" alt="Torta de trompo" loading="lazy"></div>
+        <div class="post-r"><span class="rx"><i style="background:#1877F2"><svg viewBox="0 0 24 24"><path d="M2 21h4V9H2zm20-11a2 2 0 0 0-2-2h-6.3l1-4.6v-.3a1.5 1.5 0 0 0-.4-1L13.2 1 6.6 7.6A2 2 0 0 0 6 9v10a2 2 0 0 0 2 2h9a2 2 0 0 0 1.8-1.2l3-7.1.2-.7z"/></svg></i><i style="background:#F33E58"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5A5.4 5.4 0 0 1 7.5 3 6 6 0 0 1 12 5.1 6 6 0 0 1 16.5 3 5.4 5.4 0 0 1 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></i></span>Me gusta · Me encanta</div>
+        <div class="post-a"><span>Me gusta</span><span>Comentar</span><span>Compartir</span></div>
+      </article>
+      <article class="post">
+        <div class="post-h"><div class="avatar"><span>SN</span></div><div><b>Tacos El Sabor de la Noche</b><small>Publicación de muestra</small></div></div>
+        <p class="post-t">Bistec con guacamole, cebollita y cilantro, con sus papitas al lado 🥑 ¿De cuántos se echa usted?</p>
+        <div class="foto"><img src="img/tacos-bistec.jpg" alt="Tacos de bistec" loading="lazy"></div>
+        <div class="post-r"><span class="rx"><i style="background:#1877F2"><svg viewBox="0 0 24 24"><path d="M2 21h4V9H2zm20-11a2 2 0 0 0-2-2h-6.3l1-4.6v-.3a1.5 1.5 0 0 0-.4-1L13.2 1 6.6 7.6A2 2 0 0 0 6 9v10a2 2 0 0 0 2 2h9a2 2 0 0 0 1.8-1.2l3-7.1.2-.7z"/></svg></i><i style="background:#F33E58"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5A5.4 5.4 0 0 1 7.5 3 6 6 0 0 1 12 5.1 6 6 0 0 1 16.5 3 5.4 5.4 0 0 1 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></i></span>Me gusta · Me encanta</div>
+        <div class="post-a"><span>Me gusta</span><span>Comentar</span><span>Compartir</span></div>
+      </article>
+      <article class="post">
+        <div class="post-h"><div class="avatar"><span>SN</span></div><div><b>Tacos El Sabor de la Noche</b><small>Publicación de muestra</small></div></div>
+        <p class="post-t">Las tortillas ya están en la plancha, doraditas como le gustan 🔥 Abierto las 24 horas, los 7 días.</p>
+        <div class="foto"><img src="img/plancha.jpg" alt="Tortillas en la plancha" loading="lazy"></div>
+        <div class="post-r"><span class="rx"><i style="background:#1877F2"><svg viewBox="0 0 24 24"><path d="M2 21h4V9H2zm20-11a2 2 0 0 0-2-2h-6.3l1-4.6v-.3a1.5 1.5 0 0 0-.4-1L13.2 1 6.6 7.6A2 2 0 0 0 6 9v10a2 2 0 0 0 2 2h9a2 2 0 0 0 1.8-1.2l3-7.1.2-.7z"/></svg></i><i style="background:#F33E58"><svg viewBox="0 0 24 24"><path d="M12 21.4 10.6 20C5.4 15.4 2 12.3 2 8.5A5.4 5.4 0 0 1 7.5 3 6 6 0 0 1 12 5.1 6 6 0 0 1 16.5 3 5.4 5.4 0 0 1 22 8.5c0 3.8-3.4 6.9-8.6 11.5z"/></svg></i></span>Me gusta · Me encanta</div>
+        <div class="post-a"><span>Me gusta</span><span>Comentar</span><span>Compartir</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+</main>
+
+<div class="cuadros" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <div class="slab lona-txt">El Sabor de la Noche</div>
+    <p>Taquería · <a href="https://www.google.com/maps/search/?api=1&amp;query=Tacos%20El%20Sabor%20de%20la%20Noche%20Hidalgo%20Monterrey" target="_blank" rel="noopener">Miguel Hidalgo y Costilla, Centro, Monterrey</a></p>
+    <p>Abierto las 24 horas · <a href="tel:+528120453418">81 2045 3418</a></p>
+    <p class="aviso">Demo de muestra preparada por Pato. Imágenes generadas con IA.</p>
+  </div>
+</footer>
+
+<div class="barra-cel">
+  <a class="btn" href="tel:+528120453418"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg>Llamar</a>
+  <a class="btn sec" href="#ubicacion">Cómo llegar</a>
+</div>
+
+<script>
+// Estrellas con contorno y relleno (el dibujo va de x=2.5 a 21.5); la cifra rueda de 0.0 a 4.3 al verse en pantalla.
+const STAR='<svg viewBox="0 0 24 24"><path d="M12 2.6l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.2 1.2-6.5L2.5 9.5l6.6-.9z" fill="F" stroke="#C8161D" stroke-width="1.3" stroke-linejoin="round"/></svg>';
+const cont=document.getElementById('estrellas');
+for(let i=0;i<5;i++)cont.insertAdjacentHTML('beforeend','<div class="estrella">'+STAR.replace('F','none')+'<div class="lleno">'+STAR.replace('F','#FFC21A')+'</div></div>');
+const RATING=4.3,RESENAS=3923,num=document.getElementById('num'),res=document.getElementById('resenas'),llenos=cont.querySelectorAll('.lleno');
+function pinta(e){const v=RATING*e;num.textContent=v.toFixed(1);res.textContent=Math.round(RESENAS*e).toLocaleString('es-MX');llenos.forEach((l,i)=>{const f=Math.max(0,Math.min(1,v-i));l.style.width=(f?(2.5+19*f)/24*100:0)+'%';});}
+function animar(){const t0=performance.now(),dur=2000;(function paso(t){const p=Math.min(1,(t-t0)/dur);pinta(1-Math.pow(1-p,3));if(p<1)requestAnimationFrame(paso);})(t0);}
+if(matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window)){pinta(1);}
+else{pinta(0);const io=new IntersectionObserver(es=>{if(es[0].isIntersecting){animar();io.disconnect();}},{threshold:.35});io.observe(document.getElementById('calificacion'));}
+</script>
+</body>
+</html>
